@@ -65,57 +65,68 @@
     }
 
     @media (prefers-color-scheme: dark) {
-      picture img {
-        filter: brightness(1.05);
-      }
+      picture img { filter: brightness(1.05); }
     }
   </style>
 </head>
 
-<body>
+<body class="overflow-x-hidden">
 
   <!-- NAVBAR -->
   <header class="sticky top-0 z-40 bg-white/70 dark:bg-[#0b0f1a]/70 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <!-- Logo -->
       <a href="index.html" class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-lg" style="background:linear-gradient(135deg,#4f46e5,#06b6d4);"></div>
         <span class="font-extrabold text-lg">Mobi<span class="text-cyan-400">Sip</span></span>
       </a>
 
+      <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <a href="index.html#home" class="muted">Home</a>
-        <a href="features.html" class="muted">Features</a>
+        <a href="index.html#home" class="muted hover:text-indigo-500">Home</a>
+        <a href="features.html" class="muted hover:text-indigo-500">Features</a>
         <a href="apps.html" class="text-indigo-500 font-semibold">Apps</a>
-        <a href="testimonial.html" class="muted">Testimonials</a>
-        <a href="index.html#contact" class="muted">Contact</a>
+        <a href="testimonial.html" class="muted hover:text-indigo-500">Testimonials</a>
+        <a href="index.html#contact" class="muted hover:text-indigo-500">Contact</a>
       </nav>
 
-      <a href="index.html#contact" class="bg-gradient-to-r from-indigo-500 to-cyan-400 px-4 py-2 rounded-full text-sm font-semibold text-white shadow-lg">Request Demo</a>
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden focus:outline-none text-gray-800 dark:text-gray-100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
+
+    <!-- Mobile Dropdown -->
+    <nav id="mobile-menu" class="hidden md:hidden bg-white dark:bg-[#0b0f1a] border-t border-gray-200 dark:border-gray-800 px-6 py-4">
+      <a href="index.html#home" class="block py-2 muted hover:text-indigo-500">Home</a>
+      <a href="features.html" class="block py-2 muted hover:text-indigo-500">Features</a>
+      <a href="apps.html" class="block py-2 text-indigo-500 font-semibold">Apps</a>
+      <a href="testimonial.html" class="block py-2 muted hover:text-indigo-500">Testimonials</a>
+      <a href="index.html#contact" class="block py-2 muted hover:text-indigo-500">Contact</a>
+      <a href="index.html#contact" class="mt-3 inline-block w-full text-center btn-primary py-2 rounded-lg font-semibold">Request Demo</a>
+    </nav>
   </header>
 
   <!-- MAIN CONTENT -->
-  <main class="page-wrap p-6 max-w-7xl mx-auto">
-
-    <!-- APP DOWNLOAD SECTION -->
+  <main class="p-6 sm:p-10 max-w-7xl mx-auto">
     <section class="text-center" data-aos="fade-up" data-aos-duration="900">
-      <h1 class="text-4xl font-bold mb-4">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">
         Download <span class="accent-text">MobiSip ONE</span>
       </h1>
       <p class="muted max-w-2xl mx-auto mb-10">
         The all-in-one unified communications app — calls, video, chat, and collaboration across every device.
       </p>
 
-      <div class="flex flex-col md:flex-row items-center justify-center gap-10 mt-10">
-
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 mt-10">
         <!-- ANDROID CARD -->
-        <div class="card p-8 w-72" data-aos="fade-up" data-aos-delay="100">
+        <div class="card p-6 sm:p-8 w-full max-w-xs sm:max-w-sm" data-aos="fade-up" data-aos-delay="100">
           <picture>
             <source srcset="https://upload.wikimedia.org/wikipedia/commons/c/cd/Get_it_on_Google_play_white.svg" media="(prefers-color-scheme: dark)">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Download on Google Play" class="w-full mb-6" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Download on Google Play" class="w-44 mx-auto mb-6" />
           </picture>
-
-          <img src="https://cdn-icons-png.flaticon.com/512/888/888857.png" alt="Android phone" class="w-40 mx-auto mb-4 rounded-xl shadow-xl hover:scale-105 transition-transform duration-500 floating" />
+          <img src="https://cdn-icons-png.flaticon.com/512/888/888857.png" alt="Android phone" class="w-32 sm:w-40 mx-auto mb-4 rounded-xl shadow-xl hover:scale-105 transition-transform duration-500 floating" />
           <h3 class="text-lg font-semibold mb-2">Get it for Android</h3>
           <p class="muted text-sm mb-4">
             Download MobiSip ONE on Google Play and start making HD VoIP calls instantly with our unified client.
@@ -126,13 +137,12 @@
         </div>
 
         <!-- iOS CARD -->
-        <div class="card p-8 w-72" data-aos="fade-up" data-aos-delay="250">
+        <div class="card p-6 sm:p-8 w-full max-w-xs sm:max-w-sm" data-aos="fade-up" data-aos-delay="250">
           <picture>
             <source srcset="https://developer.apple.com/assets/elements/badges/download-on-the-app-store-dark.svg" media="(prefers-color-scheme: dark)">
-            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="w-full mb-6" />
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="w-44 mx-auto mb-6" />
           </picture>
-
-          <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="iPhone app preview" class="w-40 mx-auto mb-4 rounded-xl shadow-xl hover:scale-105 transition-transform duration-500 floating" />
+          <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="iPhone app preview" class="w-32 sm:w-40 mx-auto mb-4 rounded-xl shadow-xl hover:scale-105 transition-transform duration-500 floating" />
           <h3 class="text-lg font-semibold mb-2">Get it for iOS</h3>
           <p class="muted text-sm mb-4">
             Experience crystal-clear VoIP calls and team collaboration on iPhone and iPad — powered by MobiSip ONE.
@@ -141,7 +151,6 @@
             Download for iOS
           </a>
         </div>
-
       </div>
     </section>
   </main>
@@ -150,28 +159,37 @@
   <footer class="py-10 mt-16 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-6 text-center text-sm">
       <div class="mb-3 text-gray-600 dark:text-gray-400">© 2024 MobiSip — All rights reserved.</div>
-          <div class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-cyan-400 mb-6 animate-pulse">
+      <div class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-cyan-400 mb-6 animate-pulse">
         Powered By LMGInfotec
       </div>
-          </div>
+    </div>
   </footer>
 
   <!-- JS -->
   <script>
-    AOS.init({
-      offset: 100,
-      duration: 800,
-      easing: 'ease-in-out',
-      once: true
-    });
+    AOS.init({ offset: 100, duration: 800, easing: 'ease-in-out', once: true });
 
-    // Enable dark mode automatically
+    // Auto dark mode
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    if (prefersDark.matches) document.documentElement.classList.add('dark');
+    document.documentElement.classList.toggle('dark', prefersDark.matches);
     prefersDark.addEventListener('change', e => {
       document.documentElement.classList.toggle('dark', e.matches);
     });
-  </script>
 
+    // Mobile menu toggle with single-click navigation
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close menu on link click
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
 </body>
 </html>
