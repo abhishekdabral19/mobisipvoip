@@ -77,9 +77,9 @@
         <span class="font-extrabold text-lg">Mobi<span style="color:var(--accent-2)">Sip</span></span>
       </a>
 
-      <!-- Desktop Menu -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <a href="index.html" class="muted text-indigo-500 font-semibold">Home</a>
+      <!-- Desktop Menu (Centered) -->
+      <nav class="hidden md:flex justify-center flex-1 gap-8 text-sm font-medium">
+        <a href="index.html" class="muted">Home</a>
         <a href="features.html" class="muted">Features</a>
         <a href="apps.html" class="muted">Apps</a>
         <a href="testimonial.html" class="muted">Testimonials</a>
@@ -227,6 +227,26 @@
     document.getElementById('menu-btn').addEventListener('click', () => {
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('hidden');
+    });
+
+    // Fix for "Apps" link double-click issue
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href !== '#' && !href.startsWith('#')) {
+          window.location.href = href;
+        }
+      });
+    });
+
+    // Highlight active page
+    const current = location.pathname.split('/').pop();
+    document.querySelectorAll('nav a').forEach(a => {
+      if (a.getAttribute('href') === current) {
+        a.classList.add('text-indigo-500', 'font-semibold');
+      } else {
+        a.classList.remove('text-indigo-500', 'font-semibold');
+      }
     });
   </script>
 </body>
