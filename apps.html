@@ -22,21 +22,13 @@
       color: #0f172a;
       transition: background 0.35s ease, color 0.35s ease;
     }
-
-    .dark {
-      background-color: #071029;
-      color: #e6eef8;
-    }
-
+    .dark { background-color: #071029; color: #e6eef8; }
     .muted { color: #6b7280; }
     .dark .muted { color: #9aa9bf; }
-
     .accent-text { color: #4f46e5; }
     .dark .accent-text { color: #7c82ff; }
-
     .card {
-      background: white;
-      border-radius: 1rem;
+      background: white; border-radius: 1rem;
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
       transition: all 0.4s ease;
     }
@@ -44,44 +36,23 @@
       background: linear-gradient(180deg, rgba(15,23,42,0.8), rgba(11,15,30,0.9));
       box-shadow: 0 18px 45px rgba(13,28,57,0.35);
     }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 15px 30px rgba(79,70,229,0.25);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #4f46e5, #06b6d4);
-      color: white;
-    }
-
-    .floating {
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      picture img { filter: brightness(1.05); }
-    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 15px 30px rgba(79,70,229,0.25); }
+    .btn-primary { background: linear-gradient(135deg, #4f46e5, #06b6d4); color: white; }
+    .floating { animation: float 4s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)} }
+    @media (prefers-color-scheme: dark) { picture img{filter:brightness(1.05);} }
   </style>
 </head>
 
 <body class="overflow-x-hidden">
-
   <!-- NAVBAR -->
   <header class="sticky top-0 z-40 bg-white/70 dark:bg-[#0b0f1a]/70 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-      <!-- Logo -->
       <a href="index.html" class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-lg" style="background:linear-gradient(135deg,#4f46e5,#06b6d4);"></div>
         <span class="font-extrabold text-lg">Mobi<span class="text-cyan-400">Sip</span></span>
       </a>
 
-      <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
         <a href="index.html#home" class="muted hover:text-indigo-500">Home</a>
         <a href="features.html" class="muted hover:text-indigo-500">Features</a>
@@ -90,15 +61,13 @@
         <a href="index.html#contact" class="muted hover:text-indigo-500">Contact</a>
       </nav>
 
-      <!-- Mobile Menu Button -->
       <button id="menu-btn" class="md:hidden focus:outline-none text-gray-800 dark:text-gray-100">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
 
-    <!-- Mobile Dropdown -->
     <nav id="mobile-menu" class="hidden md:hidden bg-white dark:bg-[#0b0f1a] border-t border-gray-200 dark:border-gray-800 px-6 py-4">
       <a href="index.html#home" class="block py-2 muted hover:text-indigo-500">Home</a>
       <a href="features.html" class="block py-2 muted hover:text-indigo-500">Features</a>
@@ -124,14 +93,15 @@
         <div class="card p-6 sm:p-8 w-full max-w-xs sm:max-w-sm" data-aos="fade-up" data-aos-delay="100">
           <picture>
             <source srcset="https://upload.wikimedia.org/wikipedia/commons/c/cd/Get_it_on_Google_play_white.svg" media="(prefers-color-scheme: dark)">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Download on Google Play" class="w-44 mx-auto mb-6" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play badge" class="w-44 mx-auto mb-6" />
           </picture>
           <img src="https://cdn-icons-png.flaticon.com/512/888/888857.png" alt="Android phone" class="w-32 sm:w-40 mx-auto mb-4 rounded-xl shadow-xl hover:scale-105 transition-transform duration-500 floating" />
           <h3 class="text-lg font-semibold mb-2">Get it for Android</h3>
           <p class="muted text-sm mb-4">
             Download MobiSip ONE on Google Play and start making HD VoIP calls instantly with our unified client.
           </p>
-          <a href="#" target="_blank" class="btn-primary inline-block px-5 py-3 rounded-lg text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+          <a href="https://play.google.com/store/apps/details?id=com.example.mobisip" target="_blank" rel="noopener noreferrer" 
+             class="btn-primary inline-block px-5 py-3 rounded-lg text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
             Download for Android
           </a>
         </div>
@@ -140,14 +110,15 @@
         <div class="card p-6 sm:p-8 w-full max-w-xs sm:max-w-sm" data-aos="fade-up" data-aos-delay="250">
           <picture>
             <source srcset="https://developer.apple.com/assets/elements/badges/download-on-the-app-store-dark.svg" media="(prefers-color-scheme: dark)">
-            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="w-44 mx-auto mb-6" />
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store badge" class="w-44 mx-auto mb-6" />
           </picture>
           <img src="https://cdn-icons-png.flaticon.com/512/888/888841.png" alt="iPhone app preview" class="w-32 sm:w-40 mx-auto mb-4 rounded-xl shadow-xl hover:scale-105 transition-transform duration-500 floating" />
           <h3 class="text-lg font-semibold mb-2">Get it for iOS</h3>
           <p class="muted text-sm mb-4">
             Experience crystal-clear VoIP calls and team collaboration on iPhone and iPad — powered by MobiSip ONE.
           </p>
-          <a href="#" target="_blank" class="btn-primary inline-block px-5 py-3 rounded-lg text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+          <a href="https://apps.apple.com/app/id0000000000" target="_blank" rel="noopener noreferrer" 
+             class="btn-primary inline-block px-5 py-3 rounded-lg text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
             Download for iOS
           </a>
         </div>
@@ -168,27 +139,18 @@
   <!-- JS -->
   <script>
     AOS.init({ offset: 100, duration: 800, easing: 'ease-in-out', once: true });
-
-    // Auto dark mode
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     document.documentElement.classList.toggle('dark', prefersDark.matches);
     prefersDark.addEventListener('change', e => {
       document.documentElement.classList.toggle('dark', e.matches);
     });
 
-    // Mobile menu toggle with single-click navigation
+    // Mobile Menu Toggle
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    // Close menu on link click
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
   </script>
 </body>
