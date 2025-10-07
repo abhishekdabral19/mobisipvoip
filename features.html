@@ -57,7 +57,6 @@
       box-shadow: 0 12px 30px rgba(79,70,229,0.25);
     }
 
-    /* ICON WRAPPER */
     .icon-circle {
       width: 80px;
       height: 80px;
@@ -78,30 +77,55 @@
 
     .muted { color: var(--muted); }
     .accent-text { color: var(--accent-1); }
+
+    /* Mobile menu animation */
+    .mobile-menu {
+      transition: max-height 0.35s ease;
+      overflow: hidden;
+    }
   </style>
 </head>
 
 <body>
 
   <!-- NAVBAR -->
-  <header class="sticky top-0 z-40" style="backdrop-filter: blur(6px);">
+  <header class="sticky top-0 z-40 bg-white/70 dark:bg-[#0b0f1a]/70 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-lg" style="background:linear-gradient(135deg,var(--accent-1),var(--accent-2));"></div>
         <span class="font-extrabold text-lg" style="color:var(--text)">Mobi<span style="color:var(--accent-2)">Sip</span></span>
       </a>
 
+      <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
         <a href="index.html#home" class="muted">Home</a>
-        <a href="features.html" class="muted text-indigo-500 font-semibold">Features</a>
-        <a href="index.html#apps" class="muted">Apps</a>
+        <a href="features.html" class="text-indigo-500 font-semibold">Features</a>
+        <a href="apps.html" class="muted">Apps</a>
         <a href="testimonial.html" class="muted">Testimonials</a>
         <a href="index.html#contact" class="muted">Contact</a>
       </nav>
 
+      <!-- CTA + Hamburger -->
       <div class="flex items-center gap-3">
-        <a href="index.html#contact" class="bg-gradient-to-r from-indigo-500 to-cyan-400 px-4 py-2 rounded-full text-sm font-semibold text-white shadow-lg">Request Demo</a>
+        <a href="index.html#contact" class="hidden md:inline bg-gradient-to-r from-indigo-500 to-cyan-400 px-4 py-2 rounded-full text-sm font-semibold text-white shadow-lg">Request Demo</a>
+        <button id="menuToggle" class="md:hidden flex flex-col justify-center items-center space-y-1.5">
+          <span class="block w-6 h-0.5 bg-gray-800 dark:bg-gray-200 transition"></span>
+          <span class="block w-6 h-0.5 bg-gray-800 dark:bg-gray-200 transition"></span>
+          <span class="block w-6 h-0.5 bg-gray-800 dark:bg-gray-200 transition"></span>
+        </button>
       </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu md:hidden max-h-0 bg-white dark:bg-[#0b0f1a] border-t border-gray-200 dark:border-gray-700">
+      <nav class="flex flex-col p-4 text-sm font-medium space-y-3">
+        <a href="index.html#home" class="muted">Home</a>
+        <a href="features.html" class="text-indigo-500 font-semibold">Features</a>
+        <a href="apps.html" class="muted">Apps</a>
+        <a href="testimonial.html" class="muted">Testimonials</a>
+        <a href="index.html#contact" class="muted">Contact</a>
+        <a href="index.html#contact" class="bg-gradient-to-r from-indigo-500 to-cyan-400 px-4 py-2 rounded-full text-sm font-semibold text-white text-center shadow-lg">Request Demo</a>
+      </nav>
     </div>
   </header>
 
@@ -116,7 +140,6 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Feature Card -->
         <div class="card" data-aos="fade-up">
           <div class="icon-circle"><img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="Tenant Management"></div>
           <h3 class="font-semibold text-lg mb-2">Tenant Management</h3>
@@ -181,7 +204,7 @@
       <div class="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-cyan-400 mb-6 animate-pulse">
         Powered By LMGInfotec
       </div>
-          </div>
+    </div>
   </footer>
 
   <!-- JS -->
@@ -197,6 +220,28 @@
     if (prefersDark.matches) document.documentElement.classList.add('dark');
     prefersDark.addEventListener('change', e => {
       document.documentElement.classList.toggle('dark', e.matches);
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuToggle.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('max-h-0')) {
+        mobileMenu.classList.remove('max-h-0');
+        mobileMenu.classList.add('max-h-[400px]');
+      } else {
+        mobileMenu.classList.add('max-h-0');
+        mobileMenu.classList.remove('max-h-[400px]');
+      }
+    });
+
+    // Close menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('max-h-0');
+        mobileMenu.classList.remove('max-h-[400px]');
+      });
     });
   </script>
 </body>
