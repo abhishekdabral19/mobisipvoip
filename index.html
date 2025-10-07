@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MobiSip — Modern Cloud PBX & Unified Communications</title>
 
   <!-- Tailwind CSS -->
@@ -66,61 +66,77 @@
   </style>
 </head>
 
-<body>
+<body class="overflow-x-hidden">
 
   <!-- NAVBAR -->
-  <header class="sticky top-0 z-40 backdrop-blur-md bg-white/60 dark:bg-[#0b0f1a]/60 border-b border-gray-200 dark:border-gray-800">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-white/70 dark:bg-[#0b0f1a]/70 border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <!-- Logo -->
       <a href="index.html" class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-lg" style="background:linear-gradient(135deg,var(--accent-1),var(--accent-2));"></div>
-        <span class="font-extrabold text-lg" style="color:var(--text)">Mobi<span style="color:var(--accent-2)">Sip</span></span>
+        <span class="font-extrabold text-lg">Mobi<span style="color:var(--accent-2)">Sip</span></span>
       </a>
 
+      <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-  <a href="index.html" class="muted text-indigo-500 font-semibold">Home</a>
-  <a href="features.html" class="muted">Features</a>
-  <a href="apps.html" class="muted">Apps</a>
-  <a href="testimonial.html" class="muted">Testimonials</a>
-  <a href="index.html#contact" class="muted">Contact</a>
-</nav>
+        <a href="index.html" class="muted text-indigo-500 font-semibold">Home</a>
+        <a href="features.html" class="muted">Features</a>
+        <a href="apps.html" class="muted">Apps</a>
+        <a href="testimonial.html" class="muted">Testimonials</a>
+        <a href="#contact" class="muted">Contact</a>
+      </nav>
 
-
-      <a href="index.html#contact" class="btn-primary px-4 py-2 rounded-full text-sm font-semibold shadow-lg">Request Demo</a>
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden text-gray-700 dark:text-gray-200 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
+
+    <!-- Mobile Dropdown -->
+    <nav id="mobile-menu" class="hidden md:hidden bg-white dark:bg-[#0b0f1a] border-t border-gray-200 dark:border-gray-800 px-6 py-4">
+      <a href="index.html" class="block py-2 muted font-medium">Home</a>
+      <a href="features.html" class="block py-2 muted font-medium">Features</a>
+      <a href="apps.html" class="block py-2 muted font-medium">Apps</a>
+      <a href="testimonial.html" class="block py-2 muted font-medium">Testimonials</a>
+      <a href="#contact" class="block py-2 muted font-medium">Contact</a>
+      <a href="#contact" class="mt-3 inline-block w-full text-center btn-primary py-2 rounded-lg font-semibold">Request Demo</a>
+    </nav>
   </header>
 
   <!-- HERO SECTION -->
   <main class="max-w-7xl mx-auto px-6 py-16">
     <section id="home" class="grid md:grid-cols-2 gap-10 items-center">
-      <div data-aos="fade-right" data-aos-duration="900">
+      <div data-aos="fade-right">
         <div class="inline-flex items-center gap-3 mb-4">
           <span class="accent-dot"></span>
           <span class="text-sm font-semibold muted uppercase tracking-wider">Next-Gen Unified Communications</span>
         </div>
 
-        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6">
           Empowering <span class="accent-text">Cloud PBX</span> & Unified Communications for Service Providers
         </h1>
 
-        <p class="text-lg muted mb-8 max-w-xl">
+        <p class="text-base sm:text-lg muted mb-8 max-w-xl">
           MobiSip is a cloud-native, multi-tenant PBX and UCaaS platform built for scale, reliability, and rapid white-label deployment.
         </p>
 
-        <div class="flex gap-4 items-center">
-          <a href="features.html" class="btn-primary inline-flex items-center gap-3 px-5 py-3 rounded-lg font-semibold transform hover:scale-[1.03]">
+        <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+          <a href="features.html" class="btn-primary inline-flex items-center gap-3 px-5 py-3 rounded-lg font-semibold transform hover:scale-[1.03] w-full sm:w-auto justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M14 5l7 7-7 7M5 5v14" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>
             Explore Platform
           </a>
-          <a href="index.html#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 muted hover:underline">
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-gray-200 muted hover:underline w-full sm:w-auto">
             Contact Sales
           </a>
         </div>
       </div>
 
       <!-- HERO ILLUSTRATION -->
-      <div class="flex justify-center md:justify-end" data-aos="zoom-in" data-aos-duration="1000">
-        <div class="card p-6 w-full max-w-md">
-          <div class="p-4 rounded-xl" style="background:var(--surface);">
+      <div class="flex justify-center md:justify-end mt-8 md:mt-0" data-aos="zoom-in">
+        <div class="card p-6 w-full max-w-sm sm:max-w-md">
+          <div class="p-4 rounded-xl bg-white dark:bg-[#0b0f1a]">
             <div class="flex justify-between items-center mb-6">
               <div class="text-sm font-semibold accent-text">Calls</div>
               <div class="text-xs muted">Online</div>
@@ -155,11 +171,11 @@
           <h3 class="text-2xl font-bold mb-3">Request a Demo</h3>
           <p class="muted mb-6">See MobiSip in action. We’ll tailor the demo to your architecture and revenue model.</p>
 
-          <div class="grid grid-cols-2 gap-3 text-sm muted">
-            <div class="card p-4"><div class="font-semibold">10,000+</div><div class="text-xs">Customers</div></div>
-            <div class="card p-4"><div class="font-semibold">800K+</div><div class="text-xs">Users</div></div>
-            <div class="card p-4"><div class="font-semibold">100+</div><div class="text-xs">Countries</div></div>
-            <div class="card p-4"><div class="font-semibold">24/7</div><div class="text-xs">Support</div></div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm muted">
+            <div class="card p-4 text-center"><div class="font-semibold">10,000+</div><div class="text-xs">Customers</div></div>
+            <div class="card p-4 text-center"><div class="font-semibold">800K+</div><div class="text-xs">Users</div></div>
+            <div class="card p-4 text-center"><div class="font-semibold">100+</div><div class="text-xs">Countries</div></div>
+            <div class="card p-4 text-center"><div class="font-semibold">24/7</div><div class="text-xs">Support</div></div>
           </div>
         </div>
 
@@ -187,7 +203,7 @@
     <div class="max-w-7xl mx-auto px-6 text-center muted text-sm">
       <div class="mb-3">© 2024 MobiSip — All rights reserved.</div>
       <div class="text-2xl font-extrabold mb-6" style="color: var(--accent-1);">Powered By LMGInfotec</div>
-         </div>
+    </div>
   </footer>
 
   <!-- JS -->
@@ -201,25 +217,17 @@
       mirror: true
     });
 
-    // Auto dark mode
-    (function() {
-      const media = window.matchMedia('(prefers-color-scheme: dark)');
-      const applyTheme = (isDark) => document.documentElement.classList.toggle('dark', isDark);
-      applyTheme(media.matches);
-      media.addEventListener('change', e => applyTheme(e.matches));
-    })();
+    // Dark mode
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const applyTheme = (isDark) => document.documentElement.classList.toggle('dark', isDark);
+    applyTheme(media.matches);
+    media.addEventListener('change', e => applyTheme(e.matches));
 
-    // Redirect old #anchors to new pages
-    (function() {
-      const redirects = {
-        '#apps': 'apps.html',
-        '#features': 'features.html',
-        '#testimonials': 'testimonial.html'
-      };
-      const hash = window.location.hash;
-      if (redirects[hash]) window.location.replace(redirects[hash]);
-    })();
+    // Mobile menu toggle
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
   </script>
 </body>
 </html>
-
